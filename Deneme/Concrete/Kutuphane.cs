@@ -25,6 +25,7 @@ namespace Deneme.Concrete
             kitaplar.AddRange(bilimKitaplari);
             kitaplar.AddRange(romanKitaplari);
             kitaplar.AddRange(tarihKitaplari);
+            kitaplar.AddRange(digerKitaplar);
         }
 
 
@@ -50,23 +51,26 @@ namespace Deneme.Concrete
                 case "bilim":
                     kitap = new KitapBilim(isbn, baslik, yazarAdi, yazarSoyadi, yayinYili);
                     bilimKitaplari.Add((KitapBilim)kitap);
+                    kitaplar.Add(kitap);
                     break;
                 case "tarih":
                     kitap = new KitapTarih(isbn, baslik, yazarAdi, yazarSoyadi, yayinYili);
                     tarihKitaplari.Add((KitapTarih)kitap);
+                    kitaplar.Add(kitap);
                     break;
                 case "roman":
                     kitap = new KitapRoman(isbn, baslik, yazarAdi, yazarSoyadi, yayinYili);
                     romanKitaplari.Add((KitapRoman)kitap);
+                    kitaplar.Add(kitap);
                     break;
                 default:
                     kitap = new KitapDiger(isbn, baslik, yazarAdi, yazarSoyadi, yayinYili);
                     digerKitaplar.Add((KitapDiger)kitap);
+                    kitaplar.Add(kitap);
                     Console.WriteLine("Tür belirtilmediği için diğer kitaplar listesine kaydedildi.");
                     break;
             }
 
-            KitapListeleriniBirlestir();
             Console.WriteLine("Kitap sisteme başarıyla kaydedildi.");
         }
 
@@ -112,7 +116,7 @@ namespace Deneme.Concrete
             Console.Write("Soyad: ");
             string soyad = Console.ReadLine();
 
-            Uye uye = new Uye(ad,soyad,uyeNo);
+            Uye uye = new Uye(ad, soyad, uyeNo);
             uyeler.Add(uye);
             Console.WriteLine($"{uye.UyeNumarasi} no'lu üye başarıyla kaydedilmiştir.");
         }
@@ -211,15 +215,15 @@ namespace Deneme.Concrete
         {
             Console.WriteLine("\n----- Kutuphanenin Mevcut Durumu -----");
             Console.WriteLine("\nKitaplar:");
-            foreach (var kitap in kitaplar)
+            foreach (var kitap in kitaplar.OrderBy(k => int.Parse(k.ISBN)))
             {
-                Console.WriteLine($"{kitap.ISBN} - {kitap.Baslik} - {kitap.YazarAdi} {kitap.YazarSoyadi} - {kitap.KitapDurum}");
+                Console.WriteLine($"{kitap.ISBN} - {kitap.Baslik.PadRight(38)} - {kitap.YazarAdi.PadRight(15)} {kitap.YazarSoyadi.PadRight(10)} - {kitap.KitapDurum}");
             }
 
             Console.WriteLine("\nUyeler:");
-            foreach (var uye in uyeler)
+            foreach (var uye in uyeler.OrderBy(u => u.UyeNumarasi))
             {
-                Console.WriteLine($"{uye.UyeNumarasi} - {uye.Ad} {uye.Soyad}");
+                Console.WriteLine($"{uye.UyeNumarasi} - {uye.Ad.PadRight(10)} {uye.Soyad}");
             }
 
             Console.WriteLine("\nSu an odunc verilmis kitaplar: ");
@@ -232,7 +236,7 @@ namespace Deneme.Concrete
             }
         }
 
-       
+
 
 
 

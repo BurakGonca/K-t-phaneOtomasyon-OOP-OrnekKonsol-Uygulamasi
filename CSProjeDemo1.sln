@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deneme", "Deneme\Deneme.csproj", "{BABDC2AE-8369-4D1C-B347-7A33C770AB6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "Deneme\Library.csproj", "{BABDC2AE-8369-4D1C-B347-7A33C770AB6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kutuphane-Otomasyon-OOP", "Kutuphane-Otomasyon-OOP\Kutuphane-Otomasyon-OOP.csproj", "{55646CEE-CD6B-4024-B3D6-4F6D73346533}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kutuphane-Otomasyon-OOP", "Kutuphane-Otomasyon-OOP\Kutuphane-Otomasyon-OOP.csproj", "{55646CEE-CD6B-4024-B3D6-4F6D73346533}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

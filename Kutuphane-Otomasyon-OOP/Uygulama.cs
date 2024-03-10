@@ -98,6 +98,7 @@ namespace Kutuphane_Otomasyon_OOP
                 switch (secim)
                 {
                     case "1":
+                        Console.WriteLine("\nKitap Ekle");
                         KitapEkle();
                         Islem();
                         break;
@@ -220,7 +221,6 @@ namespace Kutuphane_Otomasyon_OOP
             Console.Write("Eklemek istediginiz kitabin türü: ");
             string tur = Console.ReadLine();
             kutupHane.KitapEkle(tur);
-            Console.WriteLine("Kitap Basariyla Eklenmistir.");
         }
 
         private static void IadeAl()
